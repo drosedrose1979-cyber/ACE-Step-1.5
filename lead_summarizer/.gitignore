@@ -1,0 +1,11 @@
+# Secrets: the API key comes from the ANTHROPIC_API_KEY environment variable only.
+.env
+.env.*
+
+# Real call data is customer PII. Only the fake samples are tracked.
+calls/incoming/*
+!calls/incoming/sample_*.txt
+calls/summaries/*
+!calls/summaries/.gitkeep
+logs/*
+!logs/.gitkeep

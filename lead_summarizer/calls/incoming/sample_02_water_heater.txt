@@ -1,0 +1,13 @@
+[FAKE TEST CALL TRANSCRIPT - not a real customer]
+Line: David Rose LLC answering line
+
+Line: Thanks for calling David Rose Plumbing. What can we help you with?
+Caller: Yeah hi, my name's Tom Becker. My water heater quit on me. No hot water since last night and there's a little puddle forming around the bottom of the tank.
+Line: Sorry to hear that. Where is the house?
+Caller: We're out in Union, off Mount Zion Road.
+Line: And what is the best number to reach you?
+Caller: It's eight five nine, five five five, zero one eight seven.
+Line: Got it. When would you like someone out?
+Caller: Today if at all possible, I've got two kids that need baths tonight.
+Line: Understood.
+Caller: Can I talk to an actual person about the cost first? Have David or somebody give me a call.

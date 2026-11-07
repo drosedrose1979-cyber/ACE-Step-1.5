@@ -1,0 +1,2 @@
+# Only dependency: the Anthropic SDK (pulls in its own sub-dependencies).
+anthropic>=2.6,<3
