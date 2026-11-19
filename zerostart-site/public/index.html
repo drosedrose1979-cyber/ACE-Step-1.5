@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ZeroStart | Websites and Local Search for Businesses Worldwide</title>
+<meta name="description" content="ZeroStart builds websites, listings and local search presence for businesses anywhere in the world.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: wide signage-style headline over one editorial column. Hero splits thesis | sample search result.
+   Services run as a typographic list, the process as a four-step rail, contact as a full-bleed cobalt band. */
+:root {
+  --paper: #f3f5fa;
+  --surface: #ffffff;
+  --ink: #0c1230;
+  --muted: #4a5375;
+  --line: #d8ddeb;
+  --cobalt: #2340e3;
+  --on-cobalt: #ffffff;
+  --marker: #ffd23a;
+  --on-marker: #0c1230;
+  --open: #127a45;
+  --display: "Archivo", "Arial Black", system-ui, sans-serif;
+  --body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0a0e1f; --surface: #121833; --ink: #e7eaf6; --muted: #a2aac8; --line: #262e54;
+    --cobalt: #8196ff; --on-cobalt: #0a0e1f; --marker: #ffd23a; --on-marker: #0c1230; --open: #4cce87;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0a0e1f; --surface: #121833; --ink: #e7eaf6; --muted: #a2aac8; --line: #262e54;
+  --cobalt: #8196ff; --on-cobalt: #0a0e1f; --marker: #ffd23a; --on-marker: #0c1230; --open: #4cce87;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+a { color: inherit; }
+p, h1, h2, h3, ul, ol, dl, dd, figure { margin: 0; }
+:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 3px; border-radius: 4px; }
+
+.wrap {
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.label {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+h1, h2, h3 { font-family: var(--display); color: inherit; text-wrap: balance; }
+.section-head { display: grid; gap: 12px; max-width: 760px; }
+.section-head h2 {
+  font-size: clamp(1.875rem, 4.2vw, 3rem);
+  font-weight: 800;
+  font-stretch: 112%;
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+}
+
+/* Header */
+.top { padding-block: 20px; }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand {
+  display: inline-flex; align-items: center; gap: 10px;
+  text-decoration: none;
+  font-family: var(--display); font-weight: 800; font-stretch: 118%;
+  font-size: 1.25rem; letter-spacing: -0.01em;
+}
+.brand svg { width: 28px; height: 28px; flex: none; }
+.logo-ring { fill: none; stroke: var(--cobalt); stroke-width: 5; }
+.logo-dot { fill: var(--ink); }
+.nav { display: flex; align-items: center; gap: 24px; }
+.nav .link { text-decoration: none; font-weight: 500; color: var(--muted); }
+.nav .link:hover { color: var(--ink); }
+@media (max-width: 720px) { .nav .link { display: none; } }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 20px;
+  border: 2px solid var(--cobalt);
+  border-radius: 999px;
+  font-weight: 600; line-height: 1.2; text-decoration: none;
+  transition: transform 0.15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-solid { background: var(--cobalt); color: var(--on-cobalt); }
+.btn-ghost { color: var(--cobalt); }
+
+/* Hero */
+.hero { padding-block: 40px 80px; }
+.hero .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.9fr);
+  gap: 56px;
+  align-items: center;
+}
+@media (max-width: 900px) { .hero .wrap { grid-template-columns: minmax(0, 1fr); gap: 48px; } }
+.hero-copy { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
+h1 {
+  isolation: isolate;
+  font-size: clamp(2.75rem, 6.4vw, 5.25rem);
+  font-weight: 850;
+  font-stretch: 118%;
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+}
+.mark {
+  position: relative;
+  white-space: nowrap;
+  padding-inline: 0.06em;
+  color: var(--on-marker);
+  animation: mark-ink 0.8s 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.mark::before {
+  content: "";
+  position: absolute;
+  inset: 0.14em -0.04em 0.02em;
+  z-index: -1;
+  background: var(--marker);
+  border-radius: 0.06em;
+  transform-origin: left center;
+  animation: mark-swipe 0.8s 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes mark-swipe { from { transform: scaleX(0); } }
+@keyframes mark-ink { from { color: var(--ink); } }
+.lede { font-size: clamp(1.125rem, 1.6vw, 1.3rem); color: var(--muted); max-width: 46ch; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* Sample search result: the one card on the page */
+.sample {
+  display: grid; gap: 16px;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: 0 24px 48px -28px color-mix(in srgb, var(--ink) 45%, transparent);
+  min-width: 0;
+}
+.search {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+}
+.search svg { width: 18px; height: 18px; flex: none; }
+.result { display: grid; gap: 10px; padding: 16px; border-radius: 12px; background: var(--paper); }
+.result-head { display: flex; gap: 12px; align-items: flex-start; }
+.pin {
+  width: 34px; height: 34px; flex: none;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  background: var(--cobalt);
+  display: grid; place-items: center;
+}
+.pin::after { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--surface); }
+.biz { font-weight: 600; font-size: 1.125rem; line-height: 1.3; }
+.meta, .hours { color: var(--muted); font-size: 0.9375rem; }
+.open { color: var(--open); font-weight: 600; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.actions span {
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.875rem; font-weight: 500;
+  color: var(--cobalt);
+}
+.actions .primary { background: var(--cobalt); border-color: var(--cobalt); color: var(--on-cobalt); }
+.checks { list-style: none; padding: 0; display: grid; gap: 10px; font-size: 0.9375rem; }
+.checks li { display: flex; gap: 10px; align-items: flex-start; }
+.checks li::before {
+  content: "\2713";
+  flex: none;
+  display: inline-grid; place-items: center;
+  width: 20px; height: 20px; margin-top: 2px;
+  border-radius: 50%;
+  background: var(--open); color: var(--surface);
+  font-size: 0.75rem; font-weight: 700;
+}
+
+/* Services */
+.services, .who, .process, .answers { padding-block: 80px; }
+.services { border-top: 1px solid var(--line); }
+.verbs { list-style: none; padding: 0; margin-top: 40px; display: grid; }
+.verbs li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px 48px;
+  align-items: baseline;
+  padding-block: 32px;
+  border-top: 1px solid var(--line);
+}
+.verbs li:last-child { border-bottom: 1px solid var(--line); }
+@media (max-width: 720px) { .verbs li { grid-template-columns: minmax(0, 1fr); } }
+.verb {
+  font-size: clamp(2.25rem, 5.2vw, 4rem);
+  font-weight: 850;
+  font-stretch: 125%;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.verb-body { display: grid; gap: 8px; min-width: 0; }
+.verb-lead { font-weight: 600; font-size: 1.25rem; }
+.verb-body p + p { color: var(--muted); max-width: 60ch; }
+
+/* Who it's for */
+.who { border-top: 1px solid var(--line); }
+.who .wrap { display: grid; gap: 32px; }
+.types {
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 3.4vw, 2.375rem);
+  font-weight: 700;
+  font-stretch: 110%;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  max-width: 28ch;
+}
+.types span { color: var(--cobalt); font-weight: 500; }
+
+/* Process */
+.process { background: var(--surface); border-block: 1px solid var(--line); }
+.steps {
+  list-style: none; padding: 0; margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+}
+@media (max-width: 960px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .steps { grid-template-columns: minmax(0, 1fr); } }
+.steps li { display: grid; gap: 10px; align-content: start; padding-top: 18px; border-top: 2px solid var(--ink); }
+.step-n { font-family: var(--mono); font-size: 0.875rem; font-weight: 500; color: var(--cobalt); }
+.steps h3 { font-size: 1.375rem; font-weight: 750; font-stretch: 110%; line-height: 1.15; }
+.steps p { color: var(--muted); }
+
+/* Answers */
+.answers .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 40px 64px;
+  align-items: start;
+}
+@media (max-width: 860px) { .answers .wrap { grid-template-columns: minmax(0, 1fr); } }
+.faq details { border-top: 1px solid var(--line); padding-block: 18px; }
+.faq details:last-child { border-bottom: 1px solid var(--line); }
+.faq summary {
+  display: flex; justify-content: space-between; gap: 16px;
+  cursor: pointer; list-style: none;
+  font-weight: 600; font-size: 1.125rem; line-height: 1.4;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+";
+  flex: none;
+  font-family: var(--mono); font-size: 1.375rem; line-height: 1;
+  color: var(--cobalt);
+}
+.faq details[open] summary::after { content: "\2212"; }
+.faq details p { margin-top: 10px; color: var(--muted); max-width: 62ch; }
+
+/* Contact */
+.contact { background: var(--cobalt); color: var(--on-cobalt); padding-block: 80px; }
+.contact :focus-visible { outline-color: var(--on-cobalt); }
+.contact .label { color: inherit; opacity: 0.8; }
+.contact .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 40px 64px;
+  align-items: end;
+}
+@media (max-width: 860px) { .contact .wrap { grid-template-columns: minmax(0, 1fr); } }
+.contact-copy { display: grid; gap: 16px; }
+.contact h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 850;
+  font-stretch: 118%;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.contact-lede { font-size: 1.1875rem; max-width: 44ch; opacity: 0.92; }
+.reach { display: grid; gap: 16px; }
+.reach > div {
+  display: grid; gap: 6px;
+  padding-top: 14px;
+  border-top: 1px solid color-mix(in srgb, var(--on-cobalt) 35%, transparent);
+}
+.reach dt { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.8; }
+.reach dd { font-weight: 600; font-size: 1.25rem; overflow-wrap: anywhere; }
+.todo {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1.5px dashed currentColor;
+  border-radius: 6px;
+  font-family: var(--mono); font-size: 0.8125rem; font-weight: 500;
+}
+
+/* Footer */
+.foot { padding-block: 28px; color: var(--muted); font-size: 0.9375rem; }
+.foot .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+<link rel="canonical" href="https://zerostart.org/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zerostart.org/">
+<meta property="og:title" content="ZeroStart | Websites and Local Search for Businesses Worldwide">
+<meta property="og:description" content="ZeroStart builds websites, listings and local search presence for businesses anywhere in the world. See a working preview of your site first.">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"ZeroStart",
+"url":"https://zerostart.org/","description":"ZeroStart builds websites, listings and local search presence for businesses anywhere in the world. See a working preview of your site first.","areaServed":"Worldwide"}
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="ZeroStart home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle class="logo-ring" cx="16" cy="16" r="12"></circle><circle class="logo-dot" cx="16" cy="16" r="3.5"></circle></svg>
+      ZeroStart
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a class="link" href="#services">What we do</a>
+      <a class="link" href="#process">How it works</a>
+      <a class="link" href="#answers">Answers</a>
+      <a class="btn btn-solid" href="#contact">Get your preview</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="label">Websites · Listings · Local search · Worldwide</p>
+        <h1>From zero to <span class="mark">found.</span></h1>
+        <p class="lede">ZeroStart builds the website, listings and search presence customers use to find a business. We build a working preview of your site first, so you can see it before you decide anything.</p>
+        <div class="cta">
+          <a class="btn btn-solid" href="#contact">Get your preview</a>
+          <a class="btn btn-ghost" href="#process">How it works</a>
+        </div>
+      </div>
+
+      <figure class="sample" aria-label="Example of a business showing up in a local search">
+        <figcaption class="label">Example · what your customers see</figcaption>
+        <div class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg>
+          <span>laundromat near me</span>
+        </div>
+        <div class="result">
+          <div class="result-head">
+            <span class="pin" aria-hidden="true"></span>
+            <div>
+              <p class="biz">Your Business Name</p>
+              <p class="meta">Laundromat · 0.4 mi away</p>
+            </div>
+          </div>
+          <p class="hours"><span class="open">Open</span> · Closes 10 PM</p>
+          <div class="actions" aria-hidden="true">
+            <span>Call</span><span>Directions</span><span class="primary">Website</span>
+          </div>
+        </div>
+        <ul class="checks">
+          <li>Website live and fast on any phone</li>
+          <li>Hours and phone number correct</li>
+          <li>Tap to call from the first screen</li>
+          <li>Same name, address and phone everywhere</li>
+        </ul>
+      </figure>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">What we do</p>
+        <h2>Everything a customer checks before they call you.</h2>
+      </div>
+      <ul class="verbs">
+        <li>
+          <h3 class="verb">Make</h3>
+          <div class="verb-body">
+            <p class="verb-lead">Your website, built and live.</p>
+            <p>A fast, mobile-first site with what customers look for: your services, your hours, where you are, and a phone number they can tap to call. It runs on Cloudflare's global network, so it loads quickly wherever your customers are.</p>
+          </div>
+        </li>
+        <li>
+          <h3 class="verb">Create</h3>
+          <div class="verb-body">
+            <p class="verb-lead">Words and a look that fit your business.</p>
+            <p>Clear copy written for your customers, a design that matches what you do, and the same name, address and phone number on your site and on every listing. Customers and search engines both trust details that match.</p>
+          </div>
+        </li>
+        <li>
+          <h3 class="verb">Dominate</h3>
+          <div class="verb-body">
+            <p class="verb-lead">Show up when people nearby search.</p>
+            <p>We set up the groundwork local search runs on: your business profiles on the major maps and search platforms, page titles and descriptions, and structured data search engines can read. Then we keep it current as your business changes.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="who">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">Who it's for</p>
+        <h2>Independent businesses people need to find, call or visit.</h2>
+      </div>
+      <p class="types">Laundromats <span>/</span> Car washes <span>/</span> Motels <span>/</span> Auto shops <span>/</span> Salons <span>/</span> Restaurants <span>/</span> Contractors <span>/</span> Anywhere in the world</p>
+    </div>
+  </section>
+
+  <section id="process" class="process">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">How it works</p>
+        <h2>You see your site before you decide.</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <span class="step-n">01</span>
+          <h3>We build a preview</h3>
+          <p>We create a working website for your business from your public details: name, address, hours and services.</p>
+        </li>
+        <li>
+          <span class="step-n">02</span>
+          <h3>You take a look</h3>
+          <p>We send you the link. Open it on your phone and see exactly what your customers would see.</p>
+        </li>
+        <li>
+          <span class="step-n">03</span>
+          <h3>We get it right</h3>
+          <p>Tell us what to change: photos, wording, services or colors. We revise it until it fits.</p>
+        </li>
+        <li>
+          <span class="step-n">04</span>
+          <h3>You go live</h3>
+          <p>We launch the site, point your listings to it and keep your details current.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="answers" class="answers">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">Straight answers</p>
+        <h2>What business owners want to know.</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>Why did I get a link to a website for my business?</summary>
+          <p>We build previews for businesses that don't have a strong presence online yet. The preview is yours to look at. If you want it, reply and we'll take it from there. If you don't, tell us and we'll take it down.</p>
+        </details>
+        <details>
+          <summary>Can you guarantee I'll rank #1 on Google?</summary>
+          <p>No. Google's own guidance says no one can guarantee a #1 ranking, so treat anyone who promises one as a red flag. We do the groundwork local search depends on and keep it maintained.</p>
+        </details>
+        <details>
+          <summary>Where do you work?</summary>
+          <p>Anywhere. Everything happens online, so your location is never a barrier.</p>
+        </details>
+        <details>
+          <summary>I run a franchise location. Can you help?</summary>
+          <p>Franchisors usually control their locations' websites and listings, so we check that first. If yours does, we'll tell you before any work starts.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="contact-copy">
+        <p class="label">Get started</p>
+        <h2>Want to see your business online?</h2>
+        <p class="contact-lede">Send your business name and city. We'll build your preview and send you the link.</p>
+      </div>
+      <dl class="reach">
+        <div>
+          <dt>Email</dt>
+          <dd><span class="todo">Email address needed before launch</span></dd>
+        </div>
+        <div>
+          <dt>Phone</dt>
+          <dd><span class="todo">Phone number needed before launch</span></dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>ZeroStart</span>
+    <span>zerostart.org</span>
+    <span>© 2026 ZeroStart</span>
+  </div>
+</footer>
+</body>
+</html>
